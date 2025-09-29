@@ -40,5 +40,9 @@ jobs:
           - name: Uploading packaged jar files
             uses: actions/upload-artifact@v4
             with:
-              name: spring-petclinic-jar
+              name: spring-petclinic-jar-${{ matrix.java }}
               path: '**/target/*.jar'
+
+
+
+
