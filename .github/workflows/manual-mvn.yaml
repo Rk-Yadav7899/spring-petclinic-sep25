@@ -40,7 +40,16 @@ jobs:
           - name: Uploading packaged jar files
             uses: actions/upload-artifact@v4
             with:
-              name: spring-petclinic-jar
+              name: spring-petclinic-jar-${{ matrix.java }}
               path: '**/target/*.jar'
+
+          - name: send email on failure
+            run: echo "everything seems problematic"
+            if: ${{ failure() }}
+
+          
+          - name: send email on success
+            run: echo "everything seems fun"
+            if: ${{ success() }}
 
 
